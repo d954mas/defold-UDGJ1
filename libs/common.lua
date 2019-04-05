@@ -80,18 +80,83 @@ function M.weakref(t)
 	return function() return weak.content end
 end
 
+--region READ_ONLY
+local function len(self)
+	return #self.__VALUE
+end
+
+--TODO CHECK PERFORMANCE OF OVERRIDE FN
+--http://lua-users.org/wiki/GeneralizedPairsAndIpairs
+local rawnext = next
+function next(t,k)
+	local m = getmetatable(t)
+	local n = m and m.__next or rawnext
+	return n(t,k)
+end
+
+function pairs(t) return next, t, nil end
+
+local function _ipairs(t, var)
+	var = var + 1
+	local value = t[var]
+	if value == nil then return end
+	return var, value
+end
+function ipairs(t) return _ipairs, t, 0 end
+
+-- remember mappings from original table to proxy table
+local proxies = setmetatable( {}, { __mode = "k" } )
+
+--__VALUE use to work with debugger or pprint
 ---@generic T
 ---@param t T
 ---@return T
 function M.read_only(t)
-	return setmetatable({}, {
-		__index = t,
-		__newindex = function(table, key, value)
-			error("Attempt to modify read-only table")
-		end,
-	});
+	if type(t) == "table" then
+		-- check whether we already have a readonly proxy for this table
+		local p = proxies[t]
+		if not p then
+			-- create new proxy table for t
+			p = setmetatable( {__VALUE = t,__len = len}, {
+				__next = function(_, k) return next(t, k) end,
+				__index = function(_, k) return M.read_only_recursive( t[ k ] ) end,
+				__newindex = function() error( "table is readonly", 2 ) end,
+			} )
+			proxies[t] = p
+		end
+		return p
+	else
+		return t
+	end
 end
 
+
+---@generic T
+---@param t T
+---@return T
+function M.read_only_recursive( t )
+	if type(t) == "table" then
+		-- check whether we already have a readonly proxy for this table
+		local p = proxies[t]
+		if not p then
+			-- create new proxy table for t
+			p = setmetatable( {__VALUE = t,__len = len}, {
+				__next = function(_, k)
+					local k,v = next(t, k)
+					return M.read_only_recursive(k), M.read_only_recursive(v)
+				end,
+				__index = function(_, k) return M.read_only_recursive( t[ k ] ) end,
+				__newindex = function() error( "table is readonly", 2 ) end,
+			} )
+			proxies[t] = p
+		end
+		return p
+	else
+		-- non-tables are returned as is
+		return t
+	end
+end
+--endregion
 --region class
 function M.class(name, super)
 	return M.CLASS.class(name, super)
