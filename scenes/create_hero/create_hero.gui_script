@@ -52,15 +52,16 @@ end
 
 function GUI:select_cell(idx)
 	local current_idx = self[self.current_tab.key]
-	if current_idx then
-		gui.set_color(gui.get_node("panel_select/cell" .. current_idx ),vmath.vector4(1,1,1,1))
-	end
-	self[self.current_tab.key] = idx
 	local v = self.current_tab.list[idx]
-	gui.set_color(gui.get_node("panel_select/cell" .. idx) ,vmath.vector4(0,0,1,1))
-	gui.set_text(self.nodes.panel_description.title,COMMON.LOCALE[v.text_title]())
-	gui.set_text(self.nodes.panel_description.description,COMMON.LOCALE[v.text_description]())
-	
+	if v then
+		if current_idx then
+			gui.set_color(gui.get_node("panel_select/cell" .. current_idx ),vmath.vector4(1,1,1,1))
+		end
+		self[self.current_tab.key] = idx
+		gui.set_color(gui.get_node("panel_select/cell" .. idx) ,vmath.vector4(0,0,1,1))
+		gui.set_text(self.nodes.panel_description.title,COMMON.LOCALE[v.text_title]())
+		gui.set_text(self.nodes.panel_description.description,COMMON.LOCALE[v.text_description]())
+	end	
 end
 
 function GUI:handle_buttons(action_id,action)
