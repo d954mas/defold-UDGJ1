@@ -37,12 +37,14 @@ function Race:initialize(data)
 	self.order = assert(data.order)
 	self.id = assert(data.id)
 	self.image = assert(data.image)
+	self.text_title = assert(data.text_title)
+	self.text_description = assert(data.text_description)
 end
 
 M.RACES = {
-	HUMAN = Race({order=1,id="HUMAN",image="human"}),
-	ELF = Race({order=2,id="ELF",image="elf"}),
-	DWARF = Race({order=3,id="DWARF",image="dwarf"}),
+	HUMAN = Race({order=1,id="HUMAN",image="human",text_title="race_human",text_description="race_human_description"}),
+	ELF = Race({order=2,id="ELF",image="elf",text_title="race_elf",text_description="race_elf_description"}),
+	DWARF = Race({order=3,id="DWARF",image="dwarf",text_title="race_dwarf",text_description="race_dwarf_description"}),
 }
 ---@type Race[]
 M.SORTED_RACES = create_sorted(M.RACES)

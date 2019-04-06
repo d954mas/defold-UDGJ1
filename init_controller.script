@@ -1,4 +1,5 @@
 local COMMON = require "libs.common"
+local LOCALE = require "assets.localization.localization"
 local SM = require "libs.sm.sm"
 COMMON.LOG.set_appname("LD44")
 COMMON.LOG.toggle_print()
@@ -6,7 +7,6 @@ COMMON.LOG.override_print()
 math.randomseed(os.time())
 local RX = require "libs.rx"
 local WORLD = require "world.world"
-
 COMMON.empty_ne("defos")
 
 local scenes = {

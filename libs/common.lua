@@ -8,6 +8,9 @@ M.RX = require "libs.rx"
 M.EVENT_BUS = M.RX.Subject()
 M.GLOBAL = {}
 M.N28S = require "libs.n28s"
+---@type Localization
+M.LOCALE = nil
+
 
 --region input
 M.INPUT = require "libs.input_receiver"

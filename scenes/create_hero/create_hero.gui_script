@@ -15,6 +15,12 @@ function GUI:init()
 	self.class_idx = nil
 	self.alignment_idx = nil
 	self.current_tab = nil
+	self.nodes = {
+		panel_description = {
+			title = gui.get_node("panel_description_texts/title"),
+			description = gui.get_node("panel_description_texts/description"),
+		}
+	}
 	self:show_info(INFO_KEYS.RACE)
 end
 
@@ -27,7 +33,7 @@ function GUI:show_info(key)
 		local cell_node = gui.get_node("panel_select/cell" .. i)
 		gui.play_flipbook(cell_image_node,v.image)
 		if i==selected_id then
-			gui.set_color(cell_node,vmath.vector4(0,0,1,1))
+			self:select_cell(i)
 		end
 	end
 end
@@ -40,6 +46,8 @@ function GUI:clear_cells()
 		gui.play_flipbook(cell_image_node,"empty")
 		gui.set_color(cell_node,vmath.vector4(1,1,1,1))
 	end
+	gui.set_text(self.nodes.panel_description.title, "")
+	gui.set_text(self.nodes.panel_description.description, "")
 end
 
 function GUI:select_cell(idx)
@@ -47,8 +55,12 @@ function GUI:select_cell(idx)
 	if current_idx then
 		gui.set_color(gui.get_node("panel_select/cell" .. current_idx ),vmath.vector4(1,1,1,1))
 	end
-	gui.set_color(gui.get_node("panel_select/cell" .. idx ),vmath.vector4(0,0,1,1))
 	self[self.current_tab.key] = idx
+	local v = self.current_tab.list[idx]
+	gui.set_color(gui.get_node("panel_select/cell" .. idx) ,vmath.vector4(0,0,1,1))
+	gui.set_text(self.nodes.panel_description.title,COMMON.LOCALE[v.text_title]())
+	gui.set_text(self.nodes.panel_description.description,COMMON.LOCALE[v.text_description]())
+	
 end
 
 function GUI:handle_buttons(action_id,action)
