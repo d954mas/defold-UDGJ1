@@ -25,7 +25,7 @@ function Scene:on_transition(transition)
         go.set("/logo#sprite","tint.w",0)
         go.animate("/logo#sprite","tint.w",go.PLAYBACK_ONCE_FORWARD,1,go.EASING_LINEAR,0.5)
         self._scheduler:schedule(function()
-            SM:show("GameScene")
+            SM:show("CreateHeroScene")
         end,1.5)
     elseif transition == self.STATIC.TRANSITIONS.ON_HIDE then
         local wait = true

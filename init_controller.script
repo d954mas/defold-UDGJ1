@@ -12,6 +12,7 @@ COMMON.empty_ne("defos")
 local scenes = {
     require "scenes.logo.logo_scene",
     require "scenes.game.game_scene",
+    require "scenes.create_hero.creat_hero",
 }
 function init(self)
     self.show_profiler = false
