@@ -1,0 +1,41 @@
+local COMMON = require "libs.common"
+local GUI = COMMON.new_n28s()
+local GOOEY = require("gooey.themes.dirtylarry.dirtylarry")
+function GUI:init()
+	COMMON.input_acquire()
+end
+
+function GUI:handle_buttons(action_id,action)
+	local group = GOOEY.group("group1", function()
+		GOOEY.button("btn_accept", action_id, action, function(button) end)
+		GOOEY.button("btn_race", action_id, action, function(button) end)
+		GOOEY.button("btn_сlass", action_id, action, function(button) end)
+		GOOEY.button("btn_alignment", action_id, action, function(button) end)
+	end)
+	return group.consumed
+end
+
+function GUI:final()
+	COMMON.input_release()
+end
+
+function GUI:update(dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function GUI:on_message(message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function GUI:on_input(action_id, action)
+	return self:handle_buttons(action_id,action)
+end
+
+function GUI:on_reload()
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+COMMON.N28S.register(GUI)
