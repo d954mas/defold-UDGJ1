@@ -22,6 +22,24 @@ images {
 images {
   image: "/assets/images/game/enemies/wolf.png"
 }
+images {
+  image: "/assets/images/game/races/dwarf.png"
+}
+images {
+  image: "/assets/images/game/races/elf.png"
+}
+images {
+  image: "/assets/images/game/races/human.png"
+}
+images {
+  image: "/assets/images/game/classes/mage.png"
+}
+images {
+  image: "/assets/images/game/classes/thief.png"
+}
+images {
+  image: "/assets/images/game/classes/warrior.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

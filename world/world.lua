@@ -1,6 +1,7 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local STATE = require "world.state"
+local PRINCIPLES = require "world.principles"
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -10,13 +11,12 @@ end
 
 function M:initialize()
 	self.rx = RX.Subject()
-	self.state = STATE
+	self.STATE = STATE
+	self.PRINCIPLES = PRINCIPLES
 	self:reset()
 end
 
 function M:update(dt, no_save)
-	for k,v in pairs(self.state) do
-	end
 end
 
 function M:dispose()
