@@ -1,16 +1,62 @@
 local COMMON = require "libs.common"
 local GUI = COMMON.new_n28s()
 local GOOEY = require("gooey.themes.dirtylarry.dirtylarry")
+local WORLD = require "world.world"
+
+local INFO_KEYS = {
+	RACE = {list = WORLD.PRINCIPLES.SORTED_RACES,key = "race_idx"},
+	CLASS = {list = WORLD.PRINCIPLES.SORTED_CLASSES,key = "class_idx"},
+	ALIGNMENT ={list = WORLD.PRINCIPLES.SORTED_ALIGNMENTS,key = "alignment_idx"},
+}
+
 function GUI:init()
 	COMMON.input_acquire()
+	self.race_idx = nil
+	self.class_idx = nil
+	self.alignment_idx = nil
+	self.current_tab = nil
+	self:show_info(INFO_KEYS.RACE)
+end
+
+function GUI:show_info(key)
+	self.current_tab = assert(key)
+	self:clear_cells()
+	local selected_id = self[key.key]
+	for i,v in ipairs(key.list)do
+		local cell_image_node = gui.get_node("panel_select/cell" .. i .. "/image")
+		local cell_node = gui.get_node("panel_select/cell" .. i)
+		gui.play_flipbook(cell_image_node,v.image)
+		if i==selected_id then
+			gui.set_color(cell_node,vmath.vector4(0,0,1,1))
+		end
+	end
+end
+
+function GUI:clear_cells()
+	for i=1,9 do
+		local cell_image_node = gui.get_node("panel_select/cell" .. i .. "/image")
+		local cell_node = gui.get_node("panel_select/cell" .. i)
+		gui.set_texture(cell_image_node,"game")
+		gui.play_flipbook(cell_image_node,"empty")
+		gui.set_color(cell_node,vmath.vector4(1,1,1,1))
+	end
+end
+
+function GUI:select_cell(idx)
+	local current_idx = self[self.current_tab.key]
+	if current_idx then
+		gui.set_color(gui.get_node("panel_select/cell" .. current_idx ),vmath.vector4(1,1,1,1))
+	end
+	gui.set_color(gui.get_node("panel_select/cell" .. idx ),vmath.vector4(0,0,1,1))
+	self[self.current_tab.key] = idx
 end
 
 function GUI:handle_buttons(action_id,action)
 	local group = GOOEY.group("group1", function()
-		GOOEY.button("btn_accept", action_id, action, function(button) end)
-		GOOEY.button("btn_race", action_id, action, function(button) end)
-		GOOEY.button("btn_сlass", action_id, action, function(button) end)
-		GOOEY.button("btn_alignment", action_id, action, function(button) end)
+		GOOEY.button("btn_accept", action_id, action, function(button)  end)
+		GOOEY.button("btn_race", action_id, action, function(button)self:show_info(INFO_KEYS.RACE) end)
+		GOOEY.button("btn_сlass", action_id, action, function(button)self:show_info(INFO_KEYS.CLASS) end)
+		GOOEY.button("btn_alignment", action_id, action, function(button)self:show_info(INFO_KEYS.ALIGNMENT) end)
 	end)
 	return group.consumed
 end
@@ -30,7 +76,18 @@ function GUI:on_message(message_id, message, sender)
 end
 
 function GUI:on_input(action_id, action)
-	return self:handle_buttons(action_id,action)
+	if self:handle_buttons(action_id,action) then
+		return true
+	else
+		if action_id == COMMON.HASHES.INPUT_TOUCH and action.pressed then
+			for i=1,9 do
+				local cell_node = gui.get_node("panel_select/cell" .. i .. "/image")
+				if gui.pick_node(cell_node,action.x,action.y) then
+					self:select_cell(i)
+				end
+			end
+		end
+	end
 end
 
 function GUI:on_reload()

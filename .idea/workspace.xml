@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/world/principles.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/images/game/game.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/game/game.atlas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/world.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/world.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/templates/panel_cells_with_title.gui" beforeDir="false" afterPath="$PROJECT_DIR$/assets/templates/panel_cells_with_title.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/logo/logo_scene.lua" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/logo/logo_scene.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/principles.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/principles.lua" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +33,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/world/principles.lua">
+        <entry file="file://$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+            <state relative-caret-position="384">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -140,9 +143,9 @@
         <option value="$PROJECT_DIR$/world/state.lua" />
         <option value="$PROJECT_DIR$/libs/common.lua" />
         <option value="$PROJECT_DIR$/init_controller.script" />
-        <option value="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" />
         <option value="$PROJECT_DIR$/world/world.lua" />
         <option value="$PROJECT_DIR$/world/principles.lua" />
+        <option value="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" />
       </list>
     </option>
   </component>
@@ -190,7 +193,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554554760492" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554586873708" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -245,7 +248,7 @@
       <workItem from="1553375127098" duration="50000" />
       <workItem from="1553587400156" duration="8848000" />
       <workItem from="1553935631406" duration="2011000" />
-      <workItem from="1554499474027" duration="11501000" />
+      <workItem from="1554499474027" duration="16210000" />
     </task>
     <task id="LOCAL-00001" summary="sm">
       <created>1548882386568</created>
@@ -258,7 +261,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120932000" />
+    <option name="totallyTimeSpent" value="125641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -393,17 +396,15 @@
           <line>18</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="lua-line">
+          <url>file://$PROJECT_DIR$/world/principles.lua</url>
+          <line>50</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gui/progress_bar.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="35" column="19" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/richtext/parse.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
@@ -443,13 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="29" lean-forward="true" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/hashes.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -637,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="59" lean-forward="true" selection-start-line="2" selection-start-column="59" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/development/Defold/defold_api.zip!/api/base.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -674,15 +661,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/world/world.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="34" lean-forward="true" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        <state relative-caret-position="224">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/development/Defold/defold_api.zip!/api/gui.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="716" column="13" selection-start-line="716" selection-start-column="13" selection-end-line="716" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/world/principles.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="46" column="11" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="11" />
+        <state relative-caret-position="163">
+          <caret line="25" column="55" lean-forward="true" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/hashes.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
