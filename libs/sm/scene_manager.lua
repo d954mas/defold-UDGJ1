@@ -103,7 +103,7 @@ local function show_new_scene(self, old_scene, new_scene, input,options)
     assert(new_scene, "new_scene can't be nil")
     local start_time = os.clock()
     local STATES  = new_scene.STATIC.STATES
-    COMMON.i("change scene from " .. (old_scene and old_scene._name or "nil") .. " to " .. new_scene._name)
+    COMMON.i("change scene from " .. (old_scene and old_scene._name or "nil") .. " to " .. new_scene._name,TAG)
     options = options or {}
     if new_scene == old_scene and not options.reload then
         COMMON.i("scene:" .. new_scene._name .. " already on top")
