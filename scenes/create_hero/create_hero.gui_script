@@ -19,9 +19,26 @@ function GUI:init()
 		panel_description = {
 			title = gui.get_node("panel_description_texts/title"),
 			description = gui.get_node("panel_description_texts/description"),
-		}
+		},
+		panel_total = {
+			description = gui.get_node("panel_total_texts/description"),
+		},
+		btn_accept = gui.get_node("btn_accept/bg")
 	}
 	self:show_info(INFO_KEYS.RACE)
+	self:update_total()
+end
+
+function GUI:update_total()
+	local race = WORLD.PRINCIPLES.SORTED_RACES[self.race_idx]
+	local class = WORLD.PRINCIPLES.SORTED_CLASSES[self.class_idx]
+	local alignment = WORLD.PRINCIPLES.SORTED_ALIGNMENTS[self.alignment_idx]
+	gui.set_enabled(self.nodes.btn_accept,race and class and alignment)
+	race = race and race.text_title or "common_not_selected"
+	class = class and class.text_title or "common_not_selected"
+	alignment = alignment and alignment.text_title or "common_not_selected"
+	gui.set_text(self.nodes.panel_total.description,COMMON.LOCALE.create_hero_total({race =COMMON.LOCALE[race](),
+	class = COMMON.LOCALE[class](), alignment = COMMON.LOCALE[alignment]()}))
 end
 
 function GUI:show_info(key)
@@ -61,7 +78,8 @@ function GUI:select_cell(idx)
 		gui.set_color(gui.get_node("panel_select/cell" .. idx) ,vmath.vector4(0,0,1,1))
 		gui.set_text(self.nodes.panel_description.title,COMMON.LOCALE[v.text_title]())
 		gui.set_text(self.nodes.panel_description.description,COMMON.LOCALE[v.text_description]())
-	end	
+		self:update_total()
+	end
 end
 
 function GUI:handle_buttons(action_id,action)

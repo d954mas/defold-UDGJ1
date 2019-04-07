@@ -31,6 +31,11 @@ local M = {
 	alignment_evil = {ru = "зло"},
 	alignment_evil_description = {ru = "я зло"},
 	--endregion
+	--region COMMON
+	common_not_selected =  {ru = "не выбрано"},
+	--endregion
+	create_hero_total =  {ru = "Раса: %{race}\n\nКласс: %{class}\n\nМировозрение: %{alignment}"},
+
 }
 
 function M:locale_exist(key)

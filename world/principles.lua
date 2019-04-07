@@ -10,7 +10,7 @@ local function create_sorted(t)
 	return data
 end
 
-
+---@class BasePrinciple
 local BasePrinciple = COMMON.class("BasePrinciple")
 function BasePrinciple:initialize(data)
 	assert(data)
@@ -24,7 +24,7 @@ function BasePrinciple:initialize(data)
 end
 
 --region ALIGNMENTS
----@class Alignment
+---@class Alignment:BasePrinciple
 local Alignment = COMMON.class("Alignment",BasePrinciple)
 
 M.ALIGNMENTS = {
@@ -37,7 +37,7 @@ M.SORTED_ALIGNMENTS = create_sorted(M.ALIGNMENTS)
 --endregion
 
 --region RACES
----@class Race
+---@class Race:BasePrinciple
 local Race = COMMON.class("Race",BasePrinciple)
 
 M.RACES = {
@@ -50,7 +50,7 @@ M.SORTED_RACES = create_sorted(M.RACES)
 --endregion
 
 --region CLASSES
----@class Class
+---@class Class:BasePrinciple
 local Class = COMMON.class("Class",BasePrinciple)
 
 
@@ -64,7 +64,7 @@ M.SORTED_CLASSES = create_sorted(M.CLASSES)
 --endregion
 
 --region WEAPON TYPES
----@class WeaponType
+---@class WeaponType:BasePrinciple
 local WeaponType = COMMON.class("WeaponType",BasePrinciple)
 
 M.WEAPON_TYPES = {
@@ -77,7 +77,7 @@ M.SORTED_WEAPON_TYPES = create_sorted(M.WEAPON_TYPES)
 --endregion
 
 --region ARMOR TYPES
----@class ArmorType
+---@class ArmorType:BasePrinciple
 local ArmorType = COMMON.class("ArmorType",BasePrinciple)
 
 
