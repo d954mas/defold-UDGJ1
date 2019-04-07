@@ -2,6 +2,7 @@ local COMMON = require "libs.common"
 local GUI = COMMON.new_n28s()
 local GOOEY = require("gooey.themes.dirtylarry.dirtylarry")
 local WORLD = require "world.world"
+local SM = require "libs.sm.sm"
 
 local INFO_KEYS = {
 	RACE = {list = WORLD.PRINCIPLES.SORTED_RACES,key = "race_idx"},
@@ -84,7 +85,13 @@ end
 
 function GUI:handle_buttons(action_id,action)
 	local group = GOOEY.group("group1", function()
-		GOOEY.button("btn_accept", action_id, action, function(button)  end)
+		GOOEY.button("btn_accept", action_id, action, function(button)
+			WORLD.state:create_hero(WORLD.PRINCIPLES.SORTED_RACES[self.race_idx],
+									WORLD.PRINCIPLES.SORTED_CLASSES[self.race_idx],WORLD.PRINCIPLES.SORTED_ALIGNMENTS[self.race_idx])
+			if WORLD.state.hero then
+				SM:show("GameScene")
+			end
+		end)
 		GOOEY.button("btn_race", action_id, action, function(button)self:show_info(INFO_KEYS.RACE) end)
 		GOOEY.button("btn_сlass", action_id, action, function(button)self:show_info(INFO_KEYS.CLASS) end)
 		GOOEY.button("btn_alignment", action_id, action, function(button)self:show_info(INFO_KEYS.ALIGNMENT) end)

@@ -1,6 +1,6 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
-local STATE = require "world.state"
+local STATE = require "world.state.state"
 local PRINCIPLES = require "world.principles"
 
 ---@class World:Observable
@@ -10,9 +10,9 @@ function M:reset()
 end
 
 function M:initialize()
-	self.rx = RX.Subject()
-	self.STATE = STATE
 	self.PRINCIPLES = PRINCIPLES
+	self.rx = RX.Subject()
+	self.state = STATE
 	self:reset()
 end
 

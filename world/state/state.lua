@@ -1,7 +1,10 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
+local HeroState = require "world.state.hero_state"
 
 ---@class State
+---@field hero HeroState|nil
+---@field __VALUE State
 local M = {}
 M.level = 2
 M.equipment = {
@@ -9,7 +12,10 @@ M.equipment = {
  [2] = 2,
 }
 
-print("SIZE:" .. #M.equipment)
+function M:create_hero(race,class,alignment)
+	assert(not self.hero, "hero alredy created")
+	self.__VALUE.hero = HeroState(race,class,alignment)
+end
 
 function M:load()
 end

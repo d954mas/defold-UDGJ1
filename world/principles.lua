@@ -89,6 +89,11 @@ M.ARMOR_TYPES = {
 ---@type ArmorType[]
 M.SORTED_ARMOR_TYPES = create_sorted(M.ARMOR_TYPES)
 --endregion
+
+
+M.Alignment = Alignment
+M.Race = Race
+M.Class = Class
 return COMMON.read_only_recursive(M)
 
 
