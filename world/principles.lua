@@ -23,6 +23,23 @@ function BasePrinciple:initialize(data)
 	COMMON.LOCALE:locale_exist(self.text_description)
 end
 
+--region ATTRIBUTES
+---@class Attribute:BasePrinciple
+local Attribute = COMMON.class("Attribute",BasePrinciple)
+
+
+M.ATTRIBUTES = {
+	POWER = Attribute({order=1,id="POWER",image="power",text_title="attribute_power",text_description="attribute_power_description"}),
+	CONSTITUTION = Attribute({order=2,id="CONSTITUTION",image="constitution",text_title="attribute_constitution",text_description="attribute_constitution_description"}),
+	AGILITY = Attribute({order=3,id="AGILITY",image="agility",text_title="attribute_agility",text_description="attribute_agility_description"}),
+	CHARISMA = Attribute({order=3,id="CHARISMA",image="charisma",text_title="attribute_charisma",text_description="attribute_charisma_description"}),
+	LUCK = Attribute({order=3,id="LUCK",image="luck",text_title="attribute_luck",text_description="attribute_luck_description"}),
+	LEARNING = Attribute({order=3,id="LEARNING",image="learning",text_title="attribute_learning",text_description="attribute_learning_description"}),
+}
+---@type ArmorType[]
+M.SORTED_ATTRIBUTES = create_sorted(M.ATTRIBUTES)
+--endregion
+
 --region ALIGNMENTS
 ---@class Alignment:BasePrinciple
 local Alignment = COMMON.class("Alignment",BasePrinciple)

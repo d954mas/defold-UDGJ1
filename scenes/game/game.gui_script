@@ -1,0 +1,58 @@
+local COMMON = require "libs.common"
+
+local GOOEY = require("gooey.themes.dirtylarry.dirtylarry")
+local WORLD = require "world.world"
+local SM = require "libs.sm.sm"
+
+local TABS = {
+	{ url = msg.url("game:/map_tab") },
+	{ url = msg.url("game:/battle_tab") },
+	{ url = msg.url("game:/train_tab") },
+}
+
+local GUI = COMMON.new_n28s()
+function GUI:init()
+	COMMON.input_acquire()
+	self.current_tab_idx = nil
+	self.nodes = {}
+	self:hide_all_tabs()
+	self:show_tab(1)
+end
+
+function GUI:hide_all_tabs()
+	for _, tab in ipairs(TABS)do
+		msg.post(tab.url,COMMON.HASHES.MSG_DISABLE)
+	end
+end
+
+function GUI:show_tab(tab_idx)
+	assert(TABS[tab_idx])
+	if self.current_tab_idx ~= tab_idx then
+		if self.current_tab_idx then
+			msg.post(TABS[self.current_tab_idx].url,COMMON.HASHES.MSG_DISABLE)
+		end
+		self.current_tab_idx = tab_idx
+		msg.post(TABS[self.current_tab_idx].url,COMMON.HASHES.MSG_ENABLE)
+	end
+
+end
+
+function GUI:handle_buttons(action_id,action)
+	local group = GOOEY.group("group1", function()
+		GOOEY.button("btn_map", action_id, action, function(button)self:show_tab(1) end)
+		GOOEY.button("btn_battle", action_id, action, function(button)self:show_tab(2) end)
+		GOOEY.button("btn_train", action_id, action, function(button)self:show_tab(3) end)
+	end)
+	return group.consumed
+end
+
+function GUI:final()
+	COMMON.input_release()
+end
+
+
+function GUI:on_input(action_id, action)
+	return self:handle_buttons(action_id,action)
+end
+
+COMMON.N28S.register(GUI)
