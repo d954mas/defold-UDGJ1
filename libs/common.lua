@@ -144,9 +144,10 @@ function M.read_only_recursive( t )
 		if not p then
 			-- create new proxy table for t
 			p = setmetatable( {__VALUE = t,__len = len}, {
+				--errors in debugger if k is read_only_recursive
 				__next = function(_, k)
 					local k,v = next(t, k)
-					return M.read_only_recursive(k), M.read_only_recursive(v)
+					return k, M.read_only_recursive(v)
 				end,
 				__index = function(_, k) return M.read_only_recursive( t[ k ] ) end,
 				__newindex = function() error( "table is readonly", 2 ) end,

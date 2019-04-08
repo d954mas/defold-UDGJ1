@@ -24,6 +24,7 @@ function init(self)
         reg_scenes[i] = v()
     end
     --endregion
+    WORLD:load()
     SM:register(reg_scenes)
     SM:show("LogoScene")
 end
