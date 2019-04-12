@@ -16,6 +16,15 @@ images {
 images {
   image: "/assets/images/gui/golden_gui/cell.png"
 }
+images {
+  image: "/assets/images/gui/icons/gold.png"
+}
+images {
+  image: "/assets/images/gui/icons/gear.png"
+}
+images {
+  image: "/assets/images/gui/icons/question.png"
+}
 margin: 0
 extrude_borders: 2
 inner_padding: 0

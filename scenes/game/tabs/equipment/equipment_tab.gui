@@ -260,7 +260,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "Map"
+  text: "Equipment"
   font: "PressStart2P-Regular"
   id: "text"
   xanchor: XANCHOR_NONE

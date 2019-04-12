@@ -32,9 +32,6 @@ M.ATTRIBUTES = {
 	POWER = Attribute({order=1,id="POWER",image="power",text_title="attribute_power",text_description="attribute_power_description"}),
 	CONSTITUTION = Attribute({order=2,id="CONSTITUTION",image="constitution",text_title="attribute_constitution",text_description="attribute_constitution_description"}),
 	AGILITY = Attribute({order=3,id="AGILITY",image="agility",text_title="attribute_agility",text_description="attribute_agility_description"}),
-	CHARISMA = Attribute({order=3,id="CHARISMA",image="charisma",text_title="attribute_charisma",text_description="attribute_charisma_description"}),
-	LUCK = Attribute({order=3,id="LUCK",image="luck",text_title="attribute_luck",text_description="attribute_luck_description"}),
-	LEARNING = Attribute({order=3,id="LEARNING",image="learning",text_title="attribute_learning",text_description="attribute_learning_description"}),
 }
 ---@type ArmorType[]
 M.SORTED_ATTRIBUTES = create_sorted(M.ATTRIBUTES)
@@ -57,6 +54,15 @@ M.SORTED_ALIGNMENTS = create_sorted(M.ALIGNMENTS)
 ---@class Race:BasePrinciple
 local Race = COMMON.class("Race",BasePrinciple)
 
+function Race:initialize(data)
+	BasePrinciple.initialize(self,data)
+	self.attributes = {
+		POWER = 1,
+		CONSTITUTION = 1,
+		AGILITY = 1,
+	}
+end
+
 M.RACES = {
 	HUMAN = Race({order=1,id="HUMAN",image="human",text_title="race_human",text_description="race_human_description"}),
 	ELF = Race({order=2,id="ELF",image="elf",text_title="race_elf",text_description="race_elf_description"}),
@@ -64,6 +70,7 @@ M.RACES = {
 }
 ---@type Race[]
 M.SORTED_RACES = create_sorted(M.RACES)
+
 --endregion
 
 --region CLASSES

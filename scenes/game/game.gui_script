@@ -5,7 +5,7 @@ local WORLD = require "world.world"
 local SM = require "libs.sm.sm"
 
 local TABS = {
-	{ url = msg.url("game:/map_tab") },
+	{ url = msg.url("game:/equip_tab") },
 	{ url = msg.url("game:/battle_tab") },
 	{ url = msg.url("game:/train_tab") },
 }
@@ -39,7 +39,7 @@ end
 
 function GUI:handle_buttons(action_id,action)
 	local group = GOOEY.group("group1", function()
-		GOOEY.button("btn_map", action_id, action, function(button)self:show_tab(1) end)
+		GOOEY.button("btn_equipment", action_id, action, function(button)self:show_tab(1) end)
 		GOOEY.button("btn_battle", action_id, action, function(button)self:show_tab(2) end)
 		GOOEY.button("btn_train", action_id, action, function(button)self:show_tab(3) end)
 	end)
@@ -52,6 +52,13 @@ end
 
 
 function GUI:on_input(action_id, action)
+	if action_id == COMMON.HASHES.INPUT_TOUCH and action.pressed then
+		if gui.pick_node(gui.get_node("top_panel/btn_settings"),action.x,action.y) then
+			print("settings")
+		elseif gui.pick_node(gui.get_node("top_panel/btn_help"),action.x,action.y) then
+			print("help")
+		end
+	end
 	return self:handle_buttons(action_id,action)
 end
 
