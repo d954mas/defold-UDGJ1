@@ -146,24 +146,11 @@ M.ARMOR_TYPES = {
 M.SORTED_ARMOR_TYPES = create_sorted(M.ARMOR_TYPES)
 --endregion
 
---region SKILLS
----@class Skill:BasePrinciple
-local Skill= COMMON.class("Skill",BasePrinciple)
 
-function Skill:_initialize(data)
-	BasePrinciple.initialize(self,data)
-end
-
-M.SKILLS_TYPES = {
-	STRIKE = Skill({order=1,id="STRIKE",image="strike",text_title="skill_strike",text_description="skill_strike_description"}),
-}
-
----@type Skill[]
-M.SORTED_SKILLS = create_sorted(M.SKILLS_TYPES)
 
 
 --endregion
-
+M.BasePrinciple = BasePrinciple
 M.Alignment = Alignment
 M.Race = Race
 M.Class = Class

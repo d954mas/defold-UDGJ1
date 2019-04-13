@@ -14,18 +14,30 @@ function Gui:final()
 end
 
 function Gui:update(dt)
-	self:update_panel(WORLD.battle.hero,"hero_panel")
-	self:update_panel(WORLD.battle.enemy,"enemy_panel")
+	self:update_panel(WORLD.battle.hero,WORLD.battle.enemy,"hero_panel")
+	self:update_panel(WORLD.battle.enemy,WORLD.battle.hero,"enemy_panel")
 end
 
 ---@param unit Unit
-function Gui:update_panel(unit, panel)
+---@param enemy Unit
+function Gui:update_panel(unit,enemy, panel)
 	assert(unit)
 	assert(panel)
 	gui.play_flipbook(gui.get_node(panel .. "/icon"),unit.image)
 	gui.set_text(gui.get_node(panel .. "/lbl_title"),COMMON.LOCALE[unit.title]())
 	gui.set_text(gui.get_node(panel .. "/lbl_hp"),COMMON.LOCALE.hp({hp = unit.hp}))
 	gui.set_text(gui.get_node(panel .. "/lbl_info"),COMMON.LOCALE.unit_base_info({atk = unit.attack,def = unit.defence, arm = unit.armor}))
+	for i=1,3 do
+		local name = panel .. "/skill_" .. i
+		local skill = unit.skills[i]
+		if skill then
+			gui.set_text(gui.get_node(name.."/lbl_time"),string.format("%.2f",skill:time_to_act()))
+			gui.set_text(gui.get_node(name.."/lbl_damage"),unit:count_damage(enemy,10))
+			gui.set_text(gui.get_node(name.."/lbl_chance_to_hit"),string.format("%.2f",unit:chance_to_hit(enemy)))
+		end
+
+		gui.set_enabled(gui.get_node(name.."/root"),skill)
+	end
 end
 
 COMMON.N28S.register(Gui)

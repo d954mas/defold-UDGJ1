@@ -2,6 +2,7 @@ local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local PRINCIPLES = require "world.principles"
 local UNIT = require "world.unit"
+local SKILLS = require "world.skills"
 
 ---@class HeroState
 local M = COMMON.class("HeroState")
@@ -9,6 +10,7 @@ local M = COMMON.class("HeroState")
 
 function M:initialize(race,class,alignment)
 	self.unit = UNIT({race = race,class = class, alignment = alignment})
+	self.unit.skills[1] = SKILLS.Strike()
 end
 
 function M:save()

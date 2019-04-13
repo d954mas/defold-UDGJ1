@@ -86,7 +86,7 @@ end
 function GUI:handle_buttons(action_id,action)
 	local group = GOOEY.group("group1", function()
 		GOOEY.button("btn_accept", action_id, action, function(button)
-			WORLD.state:create_hero(WORLD.PRINCIPLES.SORTED_RACES[self.race_idx],
+			WORLD:create_hero(WORLD.PRINCIPLES.SORTED_RACES[self.race_idx],
 									WORLD.PRINCIPLES.SORTED_CLASSES[self.race_idx],WORLD.PRINCIPLES.SORTED_ALIGNMENTS[self.race_idx])
 			if WORLD.state.hero then
 				SM:show("GameScene")

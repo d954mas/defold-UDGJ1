@@ -2163,7 +2163,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \321\201\320\272\320\270\320\273\320\260"
+  text: "Skill info"
   font: "PressStart2P-Regular"
   id: "lbl_skill_info"
   xanchor: XANCHOR_NONE

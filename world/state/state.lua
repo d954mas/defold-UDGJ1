@@ -46,8 +46,13 @@ end
 function M:increase_level()
 end
 
+function M:add_gold(gold)
+	assert(gold >= 0)
+	self.__VALUE.gold = self.__VALUE.gold + gold
+end
+
 function M:dispose()
 	self:reset()
 end
 
-return COMMON.read_only_recursive(M)
+return COMMON.read_only(M)

@@ -200,7 +200,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\241\320\276\320\267\320\264\320\260\320\275\320\270\320\265 \320\263\320\265\321\200\320\276\321\217"
+  text: "Create hero"
   font: "PressStart2P-Regular"
   id: "title/lbl"
   xanchor: XANCHOR_NONE
@@ -615,7 +615,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\230\321\202\320\276\320\263\320\276\n"
+  text: "Total\n"
   ""
   font: "PressStart2P-Regular"
   id: "panel_total/title/lbl"
@@ -2491,7 +2491,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265"
+  text: "Description"
   font: "PressStart2P-Regular"
   id: "panel_description/title/lbl"
   xanchor: XANCHOR_NONE
@@ -2812,7 +2812,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\240\320\260\321\201\321\213"
+  text: "Race"
   font: "PressStart2P-Regular"
   id: "btn_race/label"
   xanchor: XANCHOR_NONE
@@ -2972,7 +2972,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\232\320\273\320\260\321\201\321\201\321\213"
+  text: "Class"
   font: "PressStart2P-Regular"
   id: "btn_\321\201lass/label"
   xanchor: XANCHOR_NONE
@@ -3134,7 +3134,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\234\320\270\321\200\320\276\320\262\320\276\320\267\321\200\320\265\320\275\320\270\320\265"
+  text: "Alignment"
   font: "PressStart2P-Regular"
   id: "btn_alignment/label"
   xanchor: XANCHOR_NONE

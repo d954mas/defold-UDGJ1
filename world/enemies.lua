@@ -1,15 +1,17 @@
 local COMMON = require "libs.common"
-local Unit = require("world.unit")
+local Unit = require "world.unit"
 local Principles = require "world.principles"
+local SKILLS = require "world.skills"
 
----@class EnemyUnit
+---@class EnemyUnit:Unit
 local Enemy = COMMON.class("EnemyUnit",Unit)
 
 function Enemy:initialize(data)
 	Unit.initialize(self,{race = Principles.RACES.HUMAN,class = Principles.CLASSES.WARRIOR, alignment = Principles.ALIGNMENTS.EVIL,title = assert(data.title),
-					image = assert(data.image)})
+					image = assert(data.image),attributes_scale = 0.5})
 	self.gold = assert(data.gold)
 	self.exp = assert(data.exp)
+	self.skills[1] = SKILLS.Strike()
 end
 
 

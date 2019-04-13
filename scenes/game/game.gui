@@ -356,7 +356,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\240\321\216\320\272\320\267\320\260\320\272"
+  text: "equip"
   font: "PressStart2P-Regular"
   id: "btn_equipment/label"
   xanchor: XANCHOR_NONE
@@ -516,7 +516,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\221\320\270\321\202\320\262\320\260"
+  text: "battle"
   font: "PressStart2P-Regular"
   id: "btn_battle/label"
   xanchor: XANCHOR_NONE
@@ -676,7 +676,7 @@ nodes {
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "\320\242\321\200\320\265\320\275\320\270\321\200\320\276\320\262\320\272\320\260"
+  text: "train"
   font: "PressStart2P-Regular"
   id: "btn_train/label"
   xanchor: XANCHOR_NONE
