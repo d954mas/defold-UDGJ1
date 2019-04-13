@@ -2,6 +2,8 @@ local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local STATE = require "world.state.state"
 local PRINCIPLES = require "world.principles"
+local Battle = require "world.battle"
+local ENEMIES = require "world.enemies"
 
 local TAG = "World"
 
@@ -20,10 +22,12 @@ function M:initialize()
 	self.autosave = true
 	self.autosave_dt = 0
 	self.autosave_time = 10
+	self.battle = Battle()
 	self:reset()
 end
 
 function M:update(dt)
+	self.battle:update()
 	self:process_autosave(dt)
 end
 
@@ -38,7 +42,7 @@ function M:process_autosave(dt)
 end
 
 function M:save()
-	COMMON.i("save", TAG)
+--	COMMON.i("save", TAG)
 	local data = {state = self.state:save()}
 	sys.save(sys.get_save_file("idle","data"), data)
 end
@@ -47,6 +51,8 @@ function M:load()
 	local data =  RESET_SAVE and {} or sys.load(sys.get_save_file("idle", "data"))
 	if not data.state then return end
 	self.state:load(data.state)
+	self.battle:set_hero(self.state.hero.unit)
+	self.battle:set_enemy(ENEMIES[1])
 end
 
 function M:dispose()

@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/world/unit.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/world/battle.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/lume.lua" beforeDir="false" afterPath="$PROJECT_DIR$/libs/lume.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/localization/localization.lua" beforeDir="false" afterPath="$PROJECT_DIR$/assets/localization/localization.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/libs/common.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/game/game.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/game.gui_script" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/enemies.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/enemies.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/principles.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/principles.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/world/state/hero_state.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/state/hero_state.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/unit.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/unit.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/world/world.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/world.lua" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,10 +37,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/world/unit.lua">
+        <entry file="file://$PROJECT_DIR$/world/world.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+            <state relative-caret-position="570">
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -52,7 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>instance</find>
       <find>subclass</find>
       <find>ins</find>
       <find>FMOD_</find>
@@ -82,6 +85,7 @@
       <find>ga</find>
       <find>inst</find>
       <find>instan</find>
+      <find>_tostring</find>
     </findStrings>
     <replaceStrings>
       <replace>fmod.</replace>
@@ -95,8 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scenes/game/gui/main.gui_script" />
-        <option value="$PROJECT_DIR$/libs/sm/stack.lua" />
         <option value="$PROJECT_DIR$/libs/sm/scene_loader.script" />
         <option value="$PROJECT_DIR$/Jester/go/scene_controller.script" />
         <option value="$PROJECT_DIR$/libs/sm/scene_controller.script" />
@@ -132,26 +134,29 @@
         <option value="$PROJECT_DIR$/render/my.render_script" />
         <option value="$PROJECT_DIR$/world/state.lua" />
         <option value="$PROJECT_DIR$/libs/i18n/init.lua" />
-        <option value="$PROJECT_DIR$/assets/localization/localization.lua" />
         <option value="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" />
         <option value="$PROJECT_DIR$/world/balance.lua" />
-        <option value="$PROJECT_DIR$/world/enemies.lua" />
         <option value="$PROJECT_DIR$/world/state/state.lua" />
         <option value="$PROJECT_DIR$/init_controller.script" />
         <option value="$PROJECT_DIR$/scenes/logo/logo_scene.lua" />
-        <option value="$PROJECT_DIR$/libs/common.lua" />
-        <option value="$PROJECT_DIR$/world/world.lua" />
-        <option value="$PROJECT_DIR$/scenes/game/game.gui_script" />
-        <option value="$PROJECT_DIR$/world/state/hero_state.lua" />
         <option value="$PROJECT_DIR$/libs/lume.lua" />
         <option value="$PROJECT_DIR$/world/principles.lua" />
+        <option value="$PROJECT_DIR$/world/state/hero_state.lua" />
+        <option value="$PROJECT_DIR$/scenes/game/game.gui_script" />
+        <option value="$PROJECT_DIR$/libs/common.lua" />
         <option value="$PROJECT_DIR$/world/unit.lua" />
+        <option value="$PROJECT_DIR$/assets/localization/localization.lua" />
+        <option value="$PROJECT_DIR$/world/enemies.lua" />
+        <option value="$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui_script" />
+        <option value="$PROJECT_DIR$/world/battle.lua" />
+        <option value="$PROJECT_DIR$/world/world.lua" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="y" value="2" />
     <option name="width" value="1932" />
-    <option name="height" value="1092" />
+    <option name="height" value="1090" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -181,6 +186,40 @@
             <path>
               <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
               <item name="ungj1" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ungj1" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ungj1" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="tabs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ungj1" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="tabs" type="462c0819:PsiDirectoryNode" />
+              <item name="battle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ungj1" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="tabs" type="462c0819:PsiDirectoryNode" />
+              <item name="equipment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ungj1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ungj1" type="462c0819:PsiDirectoryNode" />
               <item name="world" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -191,7 +230,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555151159996" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555155171623" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -252,7 +291,7 @@
       <workItem from="1554499474027" duration="26135000" />
       <workItem from="1554652141754" duration="3580000" />
       <workItem from="1554758940668" duration="4676000" />
-      <workItem from="1555096705139" duration="8988000" />
+      <workItem from="1555096705139" duration="13622000" />
     </task>
     <task id="LOCAL-00001" summary="sm">
       <created>1548882386568</created>
@@ -265,7 +304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152810000" />
+    <option name="totallyTimeSpent" value="157444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,10 +316,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1932" height="1092" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="2" width="1932" height="1090" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29211086" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29211086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -299,7 +337,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.34802786" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.22960725" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.23007064" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -397,7 +435,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="lua-line">
           <url>file://$PROJECT_DIR$/world/world.lua</url>
-          <line>25</line>
+          <line>28</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="lua-line">
@@ -409,17 +447,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/world/text_settings.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/systems.lua" />
-    <entry file="file://$PROJECT_DIR$/libs/sm/go/scene_loader.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/scripts/gui_follow_go_gui_script.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -453,13 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="58" column="18" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/middleclass.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="175" column="21" selection-start-line="175" selection-start-column="21" selection-end-line="175" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -539,13 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/n28s.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gooey/themes/dirtylarry/dirtylarry.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -604,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/localization/localization.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/sm/stack.lua">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -659,55 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/world/world.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scenes/game/game.gui_script">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="55" column="54" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/enemies.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/state/state.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/state/hero_state.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/common.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="116" column="11" selection-start-line="116" selection-start-column="11" selection-end-line="116" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/world/principles.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="126" column="136" selection-start-line="126" selection-start-column="136" selection-end-line="126" selection-end-column="136" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/lume.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -715,10 +672,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/world/principles.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="153" column="39" lean-forward="true" selection-start-line="153" selection-start-column="39" selection-end-line="153" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/n28s.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/game/game.gui_script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="55" lean-forward="true" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/common.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/middleclass.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/world/unit.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+        <state relative-caret-position="25">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/localization/localization.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/enemies.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="26" column="88" lean-forward="true" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/state/hero_state.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui_script">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="36" lean-forward="true" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/battle.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/state/state.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/world/world.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
         </state>
       </provider>
     </entry>

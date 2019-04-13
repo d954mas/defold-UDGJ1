@@ -4,9 +4,6 @@ local PRINCIPLES = require "world.principles"
 local UNIT = require "world.unit"
 
 ---@class HeroState
----@field race Race
----@field class Class
----@field alignment Alignment
 local M = COMMON.class("HeroState")
 
 

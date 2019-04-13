@@ -25,6 +25,8 @@ function Unit:initialize(data)
 	self.race = data.race
 	self.class = data.class
 	self.alignment = data.alignment
+	self.image = data.image or self.race.image
+	self.title = data.title or self.race.text_title
 	self.base_attributes = COMMON.read_only({
 		power = 0 + self.race.attributes.power + self.class.attributes.power ,
 		constitution = 0 + self.race.attributes.constitution + self.class.attributes.constitution ,
@@ -35,12 +37,13 @@ function Unit:initialize(data)
 	self.hp_percent = data.hp_percent or 0
 	self.attributes = LUME.clone(self.base_attributes.__VALUE)
 	self:recalculate_attributes()
+	self.current_hp = self.attributes.hp
 end
 
 function Unit:recalculate_attributes()
 	self.damage_percent = self.attributes.power * PRINCIPLES.ATTRIBUTES.POWER.damage_percent
-	self.attributes.hp =  (38 + (self.level * 12) + self.attributes.constitution * PRINCIPLES.ATTRIBUTES.CONSTITUTION.hp  + self.hp_added) * (1 + self.hp_percent)
-	self.defence = (53 + self.level * 3) * self.attributes.agility * PRINCIPLES.ATTRIBUTES.AGILITY.defence
+	self.hp =  (38 + (self.level * 12) + self.attributes.constitution * PRINCIPLES.ATTRIBUTES.CONSTITUTION.hp  + self.hp_added) * (1 + self.hp_percent)
+	self.defence = (53 + self.level * 3) + self.attributes.agility * PRINCIPLES.ATTRIBUTES.AGILITY.defence
 	self.attack = 0 + self.level*2 + self.attributes.agility * PRINCIPLES.ATTRIBUTES.AGILITY.attack
 	self.armor = 0
 end
@@ -59,7 +62,12 @@ end
 ---@param deffender Unit
 function Unit.damage_reduce(attacker, deffender, damage, skill)
 	return deffender.armor/(deffender.armor + (damage*10))
-end	
+end
+
+function Unit:__tostring()
+	return string.format("Unit:[race:%s class:%s alignment:%s level:%s power:%s constitution:%s agility:%s hp:%s attack:%s defence:%s armor:%s]",self.race.id,self.class.id,self.alignment.id, self.level
+	,self.attributes.power,self.attributes.constitution,self.attributes.agility, self.hp, self.attack, self.defence, self.armor)
+end
 
 
 

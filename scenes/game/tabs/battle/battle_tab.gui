@@ -1,4 +1,4 @@
-script: ""
+script: "/scenes/game/tabs/battle/battle_tab.gui_script"
 fonts {
   name: "PressStart2P-Regular"
   font: "/assets/fonts/PressStart2P-Regular.font"
@@ -259,7 +259,7 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template"
+  id: "hero_panel"
   parent: "root"
   layer: ""
   inherit_alpha: true
@@ -301,12 +301,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template/root"
+  id: "hero_panel/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template"
+  parent: "hero_panel"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -354,8 +354,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/bg"
-  parent: "template/root"
+  id: "hero_panel/bg"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -396,12 +396,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template/bg/box"
+  id: "hero_panel/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/bg"
+  parent: "hero_panel/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -452,7 +452,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template/bg/lbl"
+  id: "hero_panel/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -470,7 +470,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template/bg/box"
+  parent: "hero_panel/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -515,7 +515,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "\320\222\320\276\320\273\320\272"
   font: "PressStart2P-Regular"
-  id: "template/lbl_title"
+  id: "hero_panel/lbl_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -533,7 +533,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/root"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -577,12 +577,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/fire_crab"
-  id: "template/icon"
+  id: "hero_panel/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/root"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -635,7 +635,7 @@ nodes {
   "DEF:1\n"
   "ARM:1"
   font: "PressStart2P-Regular"
-  id: "template/lbl_info"
+  id: "hero_panel/lbl_info"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -653,7 +653,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/root"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -698,7 +698,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "HP:100"
   font: "PressStart2P-Regular"
-  id: "template/lbl_hp"
+  id: "hero_panel/lbl_hp"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -716,7 +716,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/root"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -758,8 +758,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_1"
-  parent: "template/root"
+  id: "hero_panel/skill_1"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -800,12 +800,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template/skill_1/root"
+  id: "hero_panel/skill_1/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_1"
+  parent: "hero_panel/skill_1"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -853,8 +853,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_1/bg"
-  parent: "template/skill_1/root"
+  id: "hero_panel/skill_1/bg"
+  parent: "hero_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -895,12 +895,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template/skill_1/bg/box"
+  id: "hero_panel/skill_1/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_1/bg"
+  parent: "hero_panel/skill_1/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -951,7 +951,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template/skill_1/bg/lbl"
+  id: "hero_panel/skill_1/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -969,7 +969,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template/skill_1/bg/box"
+  parent: "hero_panel/skill_1/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1013,12 +1013,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template/skill_1/icon"
+  id: "hero_panel/skill_1/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_1/root"
+  parent: "hero_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1069,7 +1069,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_1/lbl_time"
+  id: "hero_panel/skill_1/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1087,7 +1087,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_1/root"
+  parent: "hero_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1132,7 +1132,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_1/lbl_damage"
+  id: "hero_panel/skill_1/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1150,7 +1150,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_1/root"
+  parent: "hero_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1195,7 +1195,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_1/lbl_chance_to_hit"
+  id: "hero_panel/skill_1/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1213,7 +1213,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_1/root"
+  parent: "hero_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1255,8 +1255,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_2"
-  parent: "template/root"
+  id: "hero_panel/skill_2"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1297,12 +1297,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template/skill_2/root"
+  id: "hero_panel/skill_2/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_2"
+  parent: "hero_panel/skill_2"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1350,8 +1350,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_2/bg"
-  parent: "template/skill_2/root"
+  id: "hero_panel/skill_2/bg"
+  parent: "hero_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1392,12 +1392,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template/skill_2/bg/box"
+  id: "hero_panel/skill_2/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_2/bg"
+  parent: "hero_panel/skill_2/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1448,7 +1448,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template/skill_2/bg/lbl"
+  id: "hero_panel/skill_2/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -1466,7 +1466,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template/skill_2/bg/box"
+  parent: "hero_panel/skill_2/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1510,12 +1510,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template/skill_2/icon"
+  id: "hero_panel/skill_2/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_2/root"
+  parent: "hero_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1566,7 +1566,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_2/lbl_time"
+  id: "hero_panel/skill_2/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1584,7 +1584,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_2/root"
+  parent: "hero_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1629,7 +1629,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_2/lbl_damage"
+  id: "hero_panel/skill_2/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1647,7 +1647,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_2/root"
+  parent: "hero_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1692,7 +1692,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_2/lbl_chance_to_hit"
+  id: "hero_panel/skill_2/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -1710,7 +1710,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_2/root"
+  parent: "hero_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1752,8 +1752,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_3"
-  parent: "template/root"
+  id: "hero_panel/skill_3"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1794,12 +1794,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template/skill_3/root"
+  id: "hero_panel/skill_3/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_3"
+  parent: "hero_panel/skill_3"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1847,8 +1847,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_3/bg"
-  parent: "template/skill_3/root"
+  id: "hero_panel/skill_3/bg"
+  parent: "hero_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -1889,12 +1889,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template/skill_3/bg/box"
+  id: "hero_panel/skill_3/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_3/bg"
+  parent: "hero_panel/skill_3/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -1945,7 +1945,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template/skill_3/bg/lbl"
+  id: "hero_panel/skill_3/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -1963,7 +1963,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template/skill_3/bg/box"
+  parent: "hero_panel/skill_3/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2007,12 +2007,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template/skill_3/icon"
+  id: "hero_panel/skill_3/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_3/root"
+  parent: "hero_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -2063,7 +2063,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_3/lbl_time"
+  id: "hero_panel/skill_3/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2081,7 +2081,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_3/root"
+  parent: "hero_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2126,7 +2126,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_3/lbl_damage"
+  id: "hero_panel/skill_3/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2144,7 +2144,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_3/root"
+  parent: "hero_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2189,7 +2189,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template/skill_3/lbl_chance_to_hit"
+  id: "hero_panel/skill_3/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2207,7 +2207,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/skill_3/root"
+  parent: "hero_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2249,8 +2249,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template/skill_info"
-  parent: "template/root"
+  id: "hero_panel/skill_info"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2291,12 +2291,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template/skill_info/box"
+  id: "hero_panel/skill_info/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template/skill_info"
+  parent: "hero_panel/skill_info"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -2347,7 +2347,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template/skill_info/lbl"
+  id: "hero_panel/skill_info/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -2365,7 +2365,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template/skill_info/box"
+  parent: "hero_panel/skill_info/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2410,7 +2410,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \321\201\320\272\320\270\320\273\320\260"
   font: "PressStart2P-Regular"
-  id: "template/lbl_skill_info"
+  id: "hero_panel/lbl_skill_info"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -2428,7 +2428,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template/root"
+  parent: "hero_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2470,7 +2470,7 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1"
+  id: "enemy_panel"
   parent: "root"
   layer: ""
   inherit_alpha: true
@@ -2512,12 +2512,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template1/root"
+  id: "enemy_panel/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1"
+  parent: "enemy_panel"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -2565,8 +2565,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/bg"
-  parent: "template1/root"
+  id: "enemy_panel/bg"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2607,12 +2607,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template1/bg/box"
+  id: "enemy_panel/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/bg"
+  parent: "enemy_panel/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -2663,7 +2663,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template1/bg/lbl"
+  id: "enemy_panel/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -2681,7 +2681,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template1/bg/box"
+  parent: "enemy_panel/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2726,7 +2726,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "\320\222\320\276\320\273\320\272"
   font: "PressStart2P-Regular"
-  id: "template1/lbl_title"
+  id: "enemy_panel/lbl_title"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -2744,7 +2744,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/root"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2788,12 +2788,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/fire_crab"
-  id: "template1/icon"
+  id: "enemy_panel/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/root"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -2846,7 +2846,7 @@ nodes {
   "DEF:1\n"
   "ARM:1"
   font: "PressStart2P-Regular"
-  id: "template1/lbl_info"
+  id: "enemy_panel/lbl_info"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -2864,7 +2864,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/root"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2909,7 +2909,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "HP:100"
   font: "PressStart2P-Regular"
-  id: "template1/lbl_hp"
+  id: "enemy_panel/lbl_hp"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -2927,7 +2927,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/root"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -2969,8 +2969,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_1"
-  parent: "template1/root"
+  id: "enemy_panel/skill_1"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3011,12 +3011,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template1/skill_1/root"
+  id: "enemy_panel/skill_1/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_1"
+  parent: "enemy_panel/skill_1"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3064,8 +3064,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_1/bg"
-  parent: "template1/skill_1/root"
+  id: "enemy_panel/skill_1/bg"
+  parent: "enemy_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3106,12 +3106,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template1/skill_1/bg/box"
+  id: "enemy_panel/skill_1/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_1/bg"
+  parent: "enemy_panel/skill_1/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3162,7 +3162,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template1/skill_1/bg/lbl"
+  id: "enemy_panel/skill_1/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -3180,7 +3180,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template1/skill_1/bg/box"
+  parent: "enemy_panel/skill_1/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3224,12 +3224,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template1/skill_1/icon"
+  id: "enemy_panel/skill_1/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_1/root"
+  parent: "enemy_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3280,7 +3280,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_1/lbl_time"
+  id: "enemy_panel/skill_1/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3298,7 +3298,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_1/root"
+  parent: "enemy_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3343,7 +3343,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_1/lbl_damage"
+  id: "enemy_panel/skill_1/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3361,7 +3361,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_1/root"
+  parent: "enemy_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3406,7 +3406,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_1/lbl_chance_to_hit"
+  id: "enemy_panel/skill_1/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3424,7 +3424,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_1/root"
+  parent: "enemy_panel/skill_1/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3466,8 +3466,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_2"
-  parent: "template1/root"
+  id: "enemy_panel/skill_2"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3508,12 +3508,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template1/skill_2/root"
+  id: "enemy_panel/skill_2/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_2"
+  parent: "enemy_panel/skill_2"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3561,8 +3561,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_2/bg"
-  parent: "template1/skill_2/root"
+  id: "enemy_panel/skill_2/bg"
+  parent: "enemy_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3603,12 +3603,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template1/skill_2/bg/box"
+  id: "enemy_panel/skill_2/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_2/bg"
+  parent: "enemy_panel/skill_2/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3659,7 +3659,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template1/skill_2/bg/lbl"
+  id: "enemy_panel/skill_2/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -3677,7 +3677,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template1/skill_2/bg/box"
+  parent: "enemy_panel/skill_2/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3721,12 +3721,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template1/skill_2/icon"
+  id: "enemy_panel/skill_2/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_2/root"
+  parent: "enemy_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -3777,7 +3777,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_2/lbl_time"
+  id: "enemy_panel/skill_2/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3795,7 +3795,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_2/root"
+  parent: "enemy_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3840,7 +3840,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_2/lbl_damage"
+  id: "enemy_panel/skill_2/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3858,7 +3858,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_2/root"
+  parent: "enemy_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3903,7 +3903,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_2/lbl_chance_to_hit"
+  id: "enemy_panel/skill_2/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -3921,7 +3921,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_2/root"
+  parent: "enemy_panel/skill_2/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -3963,8 +3963,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_3"
-  parent: "template1/root"
+  id: "enemy_panel/skill_3"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4005,12 +4005,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/empty"
-  id: "template1/skill_3/root"
+  id: "enemy_panel/skill_3/root"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_3"
+  parent: "enemy_panel/skill_3"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -4058,8 +4058,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_3/bg"
-  parent: "template1/skill_3/root"
+  id: "enemy_panel/skill_3/bg"
+  parent: "enemy_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4100,12 +4100,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template1/skill_3/bg/box"
+  id: "enemy_panel/skill_3/bg/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_3/bg"
+  parent: "enemy_panel/skill_3/bg"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -4156,7 +4156,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template1/skill_3/bg/lbl"
+  id: "enemy_panel/skill_3/bg/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -4174,7 +4174,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template1/skill_3/bg/box"
+  parent: "enemy_panel/skill_3/bg/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4218,12 +4218,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "game/thief"
-  id: "template1/skill_3/icon"
+  id: "enemy_panel/skill_3/icon"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_3/root"
+  parent: "enemy_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -4274,7 +4274,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "3.4"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_3/lbl_time"
+  id: "enemy_panel/skill_3/lbl_time"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -4292,7 +4292,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_3/root"
+  parent: "enemy_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4337,7 +4337,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "4-15"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_3/lbl_damage"
+  id: "enemy_panel/skill_3/lbl_damage"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -4355,7 +4355,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_3/root"
+  parent: "enemy_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4400,7 +4400,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "60%"
   font: "PressStart2P-Regular_outline"
-  id: "template1/skill_3/lbl_chance_to_hit"
+  id: "enemy_panel/skill_3/lbl_chance_to_hit"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
@@ -4418,7 +4418,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/skill_3/root"
+  parent: "enemy_panel/skill_3/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4460,8 +4460,8 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  id: "template1/skill_info"
-  parent: "template1/root"
+  id: "enemy_panel/skill_info"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4502,12 +4502,12 @@ nodes {
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: "gui/panel"
-  id: "template1/skill_info/box"
+  id: "enemy_panel/skill_info/box"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   adjust_mode: ADJUST_MODE_FIT
-  parent: "template1/skill_info"
+  parent: "enemy_panel/skill_info"
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -4558,7 +4558,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: ""
   font: "PressStart2P-Regular"
-  id: "template1/skill_info/lbl"
+  id: "enemy_panel/skill_info/lbl"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_N
@@ -4576,7 +4576,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: true
-  parent: "template1/skill_info/box"
+  parent: "enemy_panel/skill_info/box"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
@@ -4621,7 +4621,7 @@ nodes {
   blend_mode: BLEND_MODE_ALPHA
   text: "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \321\201\320\272\320\270\320\273\320\260"
   font: "PressStart2P-Regular"
-  id: "template1/lbl_skill_info"
+  id: "enemy_panel/lbl_skill_info"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_NW
@@ -4639,7 +4639,7 @@ nodes {
   }
   adjust_mode: ADJUST_MODE_FIT
   line_break: false
-  parent: "template1/root"
+  parent: "enemy_panel/root"
   layer: ""
   inherit_alpha: true
   alpha: 1.0

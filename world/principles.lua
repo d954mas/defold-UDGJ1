@@ -150,6 +150,10 @@ M.SORTED_ARMOR_TYPES = create_sorted(M.ARMOR_TYPES)
 ---@class Skill:BasePrinciple
 local Skill= COMMON.class("Skill",BasePrinciple)
 
+function Skill:_initialize(data)
+	BasePrinciple.initialize(self,data)
+end
+
 M.SKILLS_TYPES = {
 	STRIKE = Skill({order=1,id="STRIKE",image="strike",text_title="skill_strike",text_description="skill_strike_description"}),
 }

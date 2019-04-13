@@ -33,9 +33,18 @@ local M = {
 	--endregion
 	--region COMMON
 	common_not_selected =  {ru = "не выбрано"},
+	hp = {ru = "HP:%{hp}"},
+	unit_base_info = {ru = "ATK:%{atk}\nDEF:%{def}\nARM:%{arm}"},
 	--endregion
 	create_hero_total =  {ru = "Раса: %{race}\n\nКласс: %{class}\n\nМировозрение: %{alignment}"},
-
+	--region ENEMIES
+	enemy_wolf = {ru = "волк"},
+	enemy_adder = {ru = "гадюка"},
+	enemy_anaconda = {ru = "анаконда"},
+	enemy_crab = {ru = "краб"},
+	enemy_bee = {ru = "пчела"},
+	enemy_turtle = {ru = "черепаха"},
+	--endregion
 }
 
 function M:locale_exist(key)
@@ -66,9 +75,21 @@ for k,v in pairs(M)do
 	end
 end
 
+--return key if value not founded
+local t  = setmetatable( {__VALUE = M,}, {
+	__index = function(_, k)
+		local result = M[k]
+		if not result then
+			COMMON.w("no key:" .. k,TAG )
+			result = function() return k end
+			M[k] = result
+		end
+		return result
+	end,
+	__newindex = function() error( "table is readonly", 2 ) end,
+} )
 
 --fix cycle dependencies
-local t = COMMON.read_only(M)
 COMMON.LOCALE = t
 
 return t

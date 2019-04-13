@@ -122,7 +122,7 @@ function M.read_only(t)
 			-- create new proxy table for t
 			p = setmetatable( {__VALUE = t,__len = len}, {
 				__next = function(_, k) return next(t, k) end,
-				__index = function(_, k) return M.read_only_recursive( t[ k ] ) end,
+				__index = function(_, k) return t[k] end,
 				__newindex = function() error( "table is readonly", 2 ) end,
 			} )
 			proxies[t] = p
