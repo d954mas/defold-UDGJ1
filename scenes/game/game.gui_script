@@ -14,7 +14,9 @@ local GUI = COMMON.new_n28s()
 function GUI:init()
 	COMMON.input_acquire()
 	self.current_tab_idx = nil
-	self.nodes = {}
+	self.nodes = {
+		lbl_money = gui.get_node("top_panel/lbl_money")
+	}
 	self:hide_all_tabs()
 	self:show_tab(1)
 end
@@ -50,6 +52,9 @@ function GUI:final()
 	COMMON.input_release()
 end
 
+function GUI:update(dt)
+	gui.set_text(self.nodes.lbl_money,WORLD.state.gold)
+end
 
 function GUI:on_input(action_id, action)
 	if action_id == COMMON.HASHES.INPUT_TOUCH and action.pressed then

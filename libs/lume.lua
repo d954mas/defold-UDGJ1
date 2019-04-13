@@ -471,6 +471,9 @@ function lume.clone_shallow(t)
   return rtn
 end
 
+---@generic T
+---@param t T
+---@return T
 function lume.clone(t)
  return lume.clone_shallow(t)
 end

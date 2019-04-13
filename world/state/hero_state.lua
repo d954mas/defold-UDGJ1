@@ -1,6 +1,7 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local PRINCIPLES = require "world.principles"
+local UNIT = require "world.unit"
 
 ---@class HeroState
 ---@field race Race
@@ -10,19 +11,14 @@ local M = COMMON.class("HeroState")
 
 
 function M:initialize(race,class,alignment)
-	assert(race:isInstanceOf(PRINCIPLES.Race))
-	assert(class:isInstanceOf(PRINCIPLES.Class))
-	assert(alignment:isInstanceOf(PRINCIPLES.Alignment))
-	self.race =  race
-	self.class =  class
-	self.alignment =  alignment
+	self.unit = UNIT({race = race,class = class, alignment = alignment})
 end
 
 function M:save()
 	local t = {}
-	t.race = self.race.id
-	t.class = self.class.id
-	t.alignment = self.alignment.id
+	t.race = self.unit.race.id
+	t.class = self.unit.class.id
+	t.alignment = self.unit.alignment.id
 	return t
 end
 
