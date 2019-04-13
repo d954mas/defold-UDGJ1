@@ -1,5 +1,5 @@
 images {
-  image: "/assets/scenes/logo/logo.png"
+  image: "/assets/scenes/logo/logo_bg.png"
 }
 margin: 0
 extrude_borders: 0

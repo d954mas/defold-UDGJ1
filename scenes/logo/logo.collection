@@ -26,7 +26,7 @@ embedded_instances {
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"tile_set: \\\"/assets/scenes/logo/logo.atlas\\\"\\n"
-  "default_animation: \\\"logo\\\"\\n"
+  "default_animation: \\\"logo_bg\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"
   "\"\n"

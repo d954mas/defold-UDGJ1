@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c62f91f-e262-404b-a264-56f876977135" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/world/skills.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/localization/localization.lua" beforeDir="false" afterPath="$PROJECT_DIR$/assets/localization/localization.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/create_hero/create_hero.gui_script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/game.gui" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/game.gui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui_script" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/game/tabs/battle/battle_tab.gui_script" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/battle.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/battle.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/enemies.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/enemies.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/principles.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/principles.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/state/hero_state.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/state/hero_state.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/state/state.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/state/state.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/unit.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/unit.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/world/world.lua" beforeDir="false" afterPath="$PROJECT_DIR$/world/world.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scenes/logo/logo.atlas" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scenes/logo/logo.atlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/scenes/logo/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scenes/logo/logo.collection" beforeDir="false" afterPath="$PROJECT_DIR$/scenes/logo/logo.collection" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -233,7 +222,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555182391305" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555183582245" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -294,7 +283,7 @@
       <workItem from="1554499474027" duration="26135000" />
       <workItem from="1554652141754" duration="3580000" />
       <workItem from="1554758940668" duration="4676000" />
-      <workItem from="1555096705139" duration="19650000" />
+      <workItem from="1555096705139" duration="20281000" />
     </task>
     <task id="LOCAL-00001" summary="sm">
       <created>1548882386568</created>
@@ -307,7 +296,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163472000" />
+    <option name="totallyTimeSpent" value="164103000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,7 +309,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="2" width="1932" height="1090" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29211086" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
