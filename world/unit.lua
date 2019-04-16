@@ -20,7 +20,7 @@ local Unit = COMMON.class("Unit")
 
 function Unit:initialize(data)
 	assert(data)
-	assert(data.race:isInstanceOf(PRINCIPLES.Race))
+	assert(data.race:isInstanceOf(PRINCIPLES.RACES.Race))
 	assert(data.class:isInstanceOf(PRINCIPLES.Class))
 	assert(data.alignment:isInstanceOf(PRINCIPLES.Alignment))
 	self.attributes_scale = data.attributes_scale or 1

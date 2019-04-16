@@ -53,7 +53,7 @@ function Gui:final()
 end
 
 function Gui:update(dt)
-	gui.set_text(self.nodes.lbl_money,WORLD.state.gold)
+	gui.set_text(self.nodes.lbl_money,WORLD.state.resources.gold)
 end
 
 

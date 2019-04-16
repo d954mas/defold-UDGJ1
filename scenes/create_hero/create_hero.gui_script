@@ -5,7 +5,7 @@ local WORLD = require "world.world"
 local SM = require "libs.sm.sm"
 
 local INFO_KEYS = {
-	RACE = {list = WORLD.PRINCIPLES.SORTED_RACES,key = "race_idx"},
+	RACE = {list = WORLD.PRINCIPLES.RACES.PLAYABLE,key = "race_idx"},
 	CLASS = {list = WORLD.PRINCIPLES.SORTED_CLASSES,key = "class_idx"},
 	ALIGNMENT ={list = WORLD.PRINCIPLES.SORTED_ALIGNMENTS,key = "alignment_idx"},
 }
@@ -31,7 +31,7 @@ function GUI:init()
 end
 
 function GUI:update_total()
-	local race = WORLD.PRINCIPLES.SORTED_RACES[self.race_idx]
+	local race = WORLD.PRINCIPLES.RACES.PLAYABLE[self.race_idx]
 	local class = WORLD.PRINCIPLES.SORTED_CLASSES[self.class_idx]
 	local alignment = WORLD.PRINCIPLES.SORTED_ALIGNMENTS[self.alignment_idx]
 	gui.set_enabled(self.nodes.btn_accept,race and class and alignment)
@@ -86,7 +86,7 @@ end
 function GUI:handle_buttons(action_id,action)
 	local group = GOOEY.group("group1", function()
 		GOOEY.button("btn_accept", action_id, action, function(button)
-			WORLD:create_hero(WORLD.PRINCIPLES.SORTED_RACES[self.race_idx],
+			WORLD:create_hero(WORLD.PRINCIPLES.RACES.PLAYABLE[self.race_idx],
 									WORLD.PRINCIPLES.SORTED_CLASSES[self.race_idx],WORLD.PRINCIPLES.SORTED_ALIGNMENTS[self.race_idx])
 			if WORLD.state.hero then
 				SM:show("GameScene")

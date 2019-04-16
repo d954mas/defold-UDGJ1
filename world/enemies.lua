@@ -7,7 +7,7 @@ local SKILLS = require "world.skills"
 local Enemy = COMMON.class("EnemyUnit",Unit)
 
 function Enemy:initialize(data)
-	Unit.initialize(self,{race = Principles.RACES.HUMAN,class = Principles.CLASSES.WARRIOR, alignment = Principles.ALIGNMENTS.EVIL,title = assert(data.title),
+	Unit.initialize(self,{race = Principles.RACES.DATA.HUMAN,class = Principles.CLASSES.WARRIOR, alignment = Principles.ALIGNMENTS.EVIL,title = assert(data.title),
 					image = assert(data.image),attributes_scale = 0.5})
 	self.gold = assert(data.gold)
 	self.exp = assert(data.exp)

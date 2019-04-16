@@ -2,19 +2,18 @@ local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local HeroState = require "world.state.hero_state"
 
+local START_ATTRIBUTES = {
+	power = 5,
+	agility = 5,
+	constitution = 5
+}
+
+local VERSION = 2
+
 ---@class State
 ---@field hero HeroState|nil
 ---@field __VALUE State
 local M = {}
-
-M.souls = 0 --reincarnation gold
-M.gems = 0
-M.gold = 0
-M.exp = 0
-M.lvl = 1
-M.current_stage = 1
-
-
 
 function M:create_hero(race,class,alignment)
 	assert(not self.hero, "hero alredy created")
@@ -22,23 +21,63 @@ function M:create_hero(race,class,alignment)
 end
 
 function M:load(t)
-	self.__VALUE.souls = t.souls or 0
-	self.__VALUE.gems = t.gems or 0
-	self.__VALUE.gold = t.gold or 0
-	self.__VALUE.exp = t.exp or 0
-	self.__VALUE.lvl = t.lvl or 1
-	self.__VALUE.current_stage = t.current_stage or 1
-	self.__VALUE.hero = t.hero and HeroState.load(t.hero)
+	if t.version < VERSION then
+		self:init_default()
+		return
+	end
+	self = self.__VALUE or self
+	self.user = {
+		exp = assert(t.user.exp),
+		lvl = assert(t.user.lvl)
+	}
+	self.resources = {
+		souls = assert(t.resources.souls),
+		gems = assert(t.resources.gems),
+		gold = assert(t.resources.gold),
+	}
+	self.current_stage = assert(t.current_stage)
+	self.hero = t.hero and HeroState.load(t.hero)
+	self:update_user_attributes()
+end
+
+function M:init_default()
+	self = self.__VALUE or self
+	self.current_stage = 1
+	self.user = {
+		exp = 0,
+		lvl = 1,
+	}
+	self.resources = {
+		souls = 0,
+		gems = 0,
+		gold = 0
+	}
+	self:update_user_attributes()
+end
+
+--recalculate user attributes. Use it when attributes changed(for expample after achievments or evolution or reuncarnation)
+function M:update_user_attributes()
+	self = self.__VALUE or self
+	self.user.attributes = {
+		power = START_ATTRIBUTES.power,
+		agility = START_ATTRIBUTES.agility,
+		constitution = START_ATTRIBUTES.constitution
+	}
 end
 
 function M:save()
 	local t = {}
-	t.souls = M.souls
-	t.gems = M.gems
-	t.gold = M.gold
-	t.exp = M.exp
-	t.lvl = M.lvl
 	t.current_stage = M.current_stage
+	t.resources = {
+		souls = self.resources.souls,
+		gems = self.resources.gems,
+		gold = self.resources.gold,
+	}
+	t.user = {
+		exp = self.user.exp,
+		lvl = self.user.lvl
+	}
+	t.version = VERSION
 	t.hero = self.hero and self.hero:save()
 	return t
 end
@@ -48,11 +87,8 @@ end
 
 function M:add_gold(gold)
 	assert(gold >= 0)
-	self.__VALUE.gold = self.__VALUE.gold + gold
+	self.__VALUE.resources.gold = self.__VALUE.resources.gold + gold
 end
 
-function M:dispose()
-	self:reset()
-end
 
 return COMMON.read_only(M)

@@ -1,11 +1,10 @@
 local COMMON = require "libs.common"
-local PRINCIPLES = require "world.principles"
-
+local BASE_PRINCIPLE = require "world.base_principle"
 ---@class Skill:BasePrinciple
-local Skill= COMMON.class("Skill",PRINCIPLES.BasePrinciple.__VALUE)
+local Skill= COMMON.class("Skill",BASE_PRINCIPLE.BasePrinciple)
 
 function Skill:_initialize(data)
-	PRINCIPLES.BasePrinciple.__VALUE.initialize(self,data)
+	BASE_PRINCIPLE.BasePrinciple.initialize(self,data)
 	self.speed = assert(data.speed)
 	self.current_time = 0
 	self.current_percent = 0

@@ -26,7 +26,12 @@ function init(self)
     --endregion
     WORLD:load()
     SM:register(reg_scenes)
-    SM:show("LogoScene")
+    if WORLD.state.hero then
+        SM:show("GameScene")
+    else
+        SM:show("CreateHeroScene")
+    end
+
 end
 
 function update(self, dt)

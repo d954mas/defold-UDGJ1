@@ -2,7 +2,7 @@ local BaseScene = require "libs.sm.scene"
 local SM = require "libs.sm.sm"
 local COMMON = require "libs.common"
 
----@class GameScene:Scene
+---@class CreateHeroScene:Scene
 local Scene = BaseScene:subclass("CreateHeroScene")
 function Scene:initialize()
     BaseScene.initialize(self, "CreateHeroScene", "/create_hero#proxy", "create_hero:/scene_controller")

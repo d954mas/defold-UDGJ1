@@ -1,31 +1,14 @@
 local COMMON = require "libs.common"
+local BASE_PRINCIPLE = require "world.base_principle"
 local M = {}
 
-local function create_sorted(t)
-	local data = {}
-	for _,v in pairs(t)do
-		table.insert(data,v)
-	end
-	table.sort(data,function(a,b) return a.order < b.order end)
-	return data
-end
+M.SKILLS = require "world.skills"
+M.RACES = require "world.races"
 
----@class BasePrinciple
-local BasePrinciple = COMMON.class("BasePrinciple")
-function BasePrinciple:initialize(data)
-	assert(data)
-	self.order = assert(data.order)
-	self.id = assert(data.id)
-	self.image = assert(data.image)
-	self.text_title = assert(data.text_title)
-	self.text_description = assert(data.text_description)
-	COMMON.LOCALE:locale_exist(self.text_title)
-	COMMON.LOCALE:locale_exist(self.text_description)
-end
 
 --region ATTRIBUTES
 ---@class Attribute:BasePrinciple
-local Attribute = COMMON.class("Attribute",BasePrinciple)
+local Attribute = COMMON.class("Attribute",BASE_PRINCIPLE.BasePrinciple)
 
 ---@class PowerAttribute:Attribute
 local PowerAttribute = COMMON.class("PowerAttribute",Attribute)
@@ -56,12 +39,12 @@ M.ATTRIBUTES = {
 	AGILITY = AgilityAttribute(),
 }
 ---@type ArmorType[]
-M.SORTED_ATTRIBUTES = create_sorted(M.ATTRIBUTES)
+M.SORTED_ATTRIBUTES = BASE_PRINCIPLE.create_sorted(M.ATTRIBUTES)
 --endregion
 
 --region ALIGNMENTS
 ---@class Alignment:BasePrinciple
-local Alignment = COMMON.class("Alignment",BasePrinciple)
+local Alignment = COMMON.class("Alignment",BASE_PRINCIPLE.BasePrinciple)
 
 M.ALIGNMENTS = {
 	EVIL = Alignment({order=1,id="EVIL",image="evil",text_title="alignment_evil",text_description="alignment_evil_description"}),
@@ -69,37 +52,14 @@ M.ALIGNMENTS = {
 	GOOD = Alignment({order=3,id="GOOD",image="good",text_title="alignment_good",text_description="alignment_good_description"}),
 }
 ---@type Alignment[]
-M.SORTED_ALIGNMENTS = create_sorted(M.ALIGNMENTS)
---endregion
-
---region RACES
----@class Race:BasePrinciple
-local Race = COMMON.class("Race",BasePrinciple)
-
-function Race:initialize(data)
-	BasePrinciple.initialize(self,data)
-	self.attributes = {
-		power = data.power or 0,
-		constitution = data.constitution or 0,
-		agility = data.agility or 0,
-	}
-end
-
-M.RACES = {
-	HUMAN = Race({order=1,id="HUMAN",image="human",text_title="race_human",text_description="race_human_description",power = 32, agility = 14, constitution = 14}),
-	ELF = Race({order=2,id="ELF",image="elf",text_title="race_elf",text_description="race_elf_description",power = 14, agility = 32, constitution = 14}),
-	DWARF = Race({order=3,id="DWARF",image="dwarf",text_title="race_dwarf",text_description="race_dwarf_description",power = 14, agility = 14, constitution = 32}),
-}
----@type Race[]
-M.SORTED_RACES = create_sorted(M.RACES)
-
+M.SORTED_ALIGNMENTS =  BASE_PRINCIPLE.create_sorted(M.ALIGNMENTS)
 --endregion
 
 --region CLASSES
 ---@class Class:BasePrinciple
-local Class = COMMON.class("Class",BasePrinciple)
+local Class = COMMON.class("Class",BASE_PRINCIPLE.BasePrinciple)
 function Class:initialize(data)
-	BasePrinciple.initialize(self,data)
+	BASE_PRINCIPLE.BasePrinciple.initialize(self,data)
 	self.attributes = {
 		power = data.power or 0,
 		constitution = data.constitution or 0,
@@ -116,12 +76,12 @@ M.CLASSES = {
 					power = 20, agility = 14, constitution = 20}),
 }
 ---@type Class[]
-M.SORTED_CLASSES = create_sorted(M.CLASSES)
+M.SORTED_CLASSES =  BASE_PRINCIPLE.create_sorted(M.CLASSES)
 --endregion
 
 --region WEAPON TYPES
 ---@class WeaponType:BasePrinciple
-local WeaponType = COMMON.class("WeaponType",BasePrinciple)
+local WeaponType = COMMON.class("WeaponType",BASE_PRINCIPLE.BasePrinciple)
 
 M.WEAPON_TYPES = {
 	SWORD = WeaponType({order=1,id="SWORD",image="sword",text_title="weapon_type_sword",text_description="weapon_type_sword_description"}),
@@ -129,12 +89,12 @@ M.WEAPON_TYPES = {
 	STAFF = WeaponType({order=3,id="STAFF",image="staff",text_title="weapon_type_staff",text_description="weapon_type_staff_description"}),
 }
 ---@type WeaponType[]
-M.SORTED_WEAPON_TYPES = create_sorted(M.WEAPON_TYPES)
+M.SORTED_WEAPON_TYPES =  BASE_PRINCIPLE.create_sorted(M.WEAPON_TYPES)
 --endregion
 
 --region ARMOR TYPES
 ---@class ArmorType:BasePrinciple
-local ArmorType = COMMON.class("ArmorType",BasePrinciple)
+local ArmorType = COMMON.class("ArmorType",BASE_PRINCIPLE.BasePrinciple)
 
 
 M.ARMOR_TYPES = {
@@ -143,18 +103,20 @@ M.ARMOR_TYPES = {
 	HEAVY = ArmorType({order=3,id="HEAVY",image="heavy",text_title="armor_type_heavy",text_description="armor_type_heavy_description"}),
 }
 ---@type ArmorType[]
-M.SORTED_ARMOR_TYPES = create_sorted(M.ARMOR_TYPES)
+M.SORTED_ARMOR_TYPES =  BASE_PRINCIPLE.create_sorted(M.ARMOR_TYPES)
 --endregion
 
 
 
 
+
 --endregion
-M.BasePrinciple = BasePrinciple
 M.Alignment = Alignment
 M.Race = Race
 M.Class = Class
-M.Skill = Skill
+M.Skils = Skill
+
+
 return COMMON.read_only_recursive(M)
 
 

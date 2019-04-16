@@ -7,7 +7,7 @@ local ENEMIES = require "world.enemies"
 
 local TAG = "World"
 
-local RESET_SAVE = true
+local RESET_SAVE = false
 
 ---@class World:Observable
 local M = COMMON.class("World")
@@ -21,7 +21,7 @@ function M:initialize()
 	self.state = STATE
 	self.autosave = true
 	self.autosave_dt = 0
-	self.autosave_time = 10
+	self.autosave_time = 30
 	self.battle = Battle()
 	self.battle:set_world(self)
 	self.battle:set_enemy(ENEMIES[1])
@@ -32,6 +32,7 @@ function M:create_hero(race,class,alignment)
 	assert(not self.state.hero)
 	self.state:create_hero(race,class,alignment)
 	self.battle:set_hero(self.state.hero.unit)
+	self:save()
 end
 
 function M:update(dt)
@@ -55,16 +56,21 @@ function M:enemy_killed(enemy)
 end
 
 function M:save()
---	COMMON.i("save", TAG)
-	local data = {state = self.state:save()}
-	sys.save(sys.get_save_file("idle","data"), data)
+	local state =  self.state:save()
+	--COMMON.i("save state",TAG)--pprint(state)
+	sys.save(sys.get_save_file("idle","data"),  {state = self.state:save()})
 end
 
 function M:load()
 	local data =  RESET_SAVE and {} or sys.load(sys.get_save_file("idle", "data"))
-	if not data.state then return end
+	if not data.state then
+		self.state:init_default()
+		return
+	end
+	COMMON.i("load state",TAG)
+	pprint(data.state)
 	self.state:load(data.state)
-	self.battle:set_hero(self.state.hero.unit)
+	if self.state.hero then self.battle:set_hero(self.state.hero.unit) end
 end
 
 function M:dispose()

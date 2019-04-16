@@ -22,7 +22,7 @@ function M:save()
 end
 
 function M.load(t)
-	return M(PRINCIPLES.RACES[t.race],PRINCIPLES.CLASSES[t.class],PRINCIPLES.ALIGNMENTS[t.alignment])
+	return M(PRINCIPLES.RACES.DATA[t.race],PRINCIPLES.CLASSES[t.class],PRINCIPLES.ALIGNMENTS[t.alignment])
 end
 
 return M
