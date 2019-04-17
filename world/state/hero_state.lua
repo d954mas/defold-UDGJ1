@@ -1,15 +1,15 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
-local PRINCIPLES = require "world.principles"
-local UNIT = require "world.unit"
-local SKILLS = require "world.skills"
+local PRINCIPLES = require "world.principles.principles"
+local UNIT = require "world.principles.unit"
+local SKILLS = require "world.principles.skills"
 
 ---@class HeroState
 local M = COMMON.class("HeroState")
 
 
-function M:initialize(race,class,alignment)
-	self.unit = UNIT({race = race,class = class, alignment = alignment})
+function M:initialize(race,class,alignment,start_attributes)
+	self.unit = UNIT({race = assert(race),class = assert(class), alignment = assert(alignment),start_attributes = assert(start_attributes)})
 	self.unit.skills[1] = SKILLS.Strike()
 end
 
@@ -21,8 +21,8 @@ function M:save()
 	return t
 end
 
-function M.load(t)
-	return M(PRINCIPLES.RACES.DATA[t.race],PRINCIPLES.CLASSES[t.class],PRINCIPLES.ALIGNMENTS[t.alignment])
+function M.load(t,start_attributes)
+	return M(PRINCIPLES.RACES.DATA[t.race],PRINCIPLES.CLASSES.DATA[t.class],PRINCIPLES.ALIGNMENTS.DATA[t.alignment],start_attributes)
 end
 
 return M

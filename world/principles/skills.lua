@@ -1,5 +1,5 @@
 local COMMON = require "libs.common"
-local BASE_PRINCIPLE = require "world.base_principle"
+local BASE_PRINCIPLE = require "world.principles.base_principle"
 ---@class Skill:BasePrinciple
 local Skill= COMMON.class("Skill",BASE_PRINCIPLE.BasePrinciple)
 

@@ -1,5 +1,5 @@
 local COMMON = require "libs.common"
-local PRINCIPLES = require "world.principles"
+local PRINCIPLES = require "world.principles.principles"
 local LUME = require "libs.lume"
 
 ---@class Attributes
@@ -21,8 +21,9 @@ local Unit = COMMON.class("Unit")
 function Unit:initialize(data)
 	assert(data)
 	assert(data.race:isInstanceOf(PRINCIPLES.RACES.Race))
-	assert(data.class:isInstanceOf(PRINCIPLES.Class))
-	assert(data.alignment:isInstanceOf(PRINCIPLES.Alignment))
+	assert(data.class:isInstanceOf(PRINCIPLES.CLASSES.Class))
+	assert(data.alignment:isInstanceOf(PRINCIPLES.ALIGNMENTS.Alignment))
+	assert(data.start_attributes)
 	self.attributes_scale = data.attributes_scale or 1
 	self.race = data.race
 	self.class = data.class
@@ -30,9 +31,9 @@ function Unit:initialize(data)
 	self.image = data.image or self.race.image
 	self.title = data.title or self.race.text_title
 	self.base_attributes = COMMON.read_only({
-		power = (0 + self.race.attributes.power + self.class.attributes.power)*self.attributes_scale ,
-		constitution = (0 + self.race.attributes.constitution + self.class.attributes.constitution)*self.attributes_scale ,
-		agility = (0 + self.race.attributes.agility + self.class.attributes.agility)*self.attributes_scale,
+		power = math.ceil(data.start_attributes.power * (self.race.attributes.power + self.class.attributes.power)*self.attributes_scale) ,
+		constitution = math.ceil((data.start_attributes.constitution * (self.race.attributes.constitution + self.class.attributes.constitution))*self.attributes_scale) ,
+		agility = math.ceil((data.start_attributes.agility * (self.race.attributes.agility + self.class.attributes.agility))*self.attributes_scale),
 	})
 	self.level = data.level or 1
 	self.hp_added = data.hp_added or 0
@@ -43,10 +44,10 @@ function Unit:initialize(data)
 end
 
 function Unit:recalculate_attributes()
-	self.damage_percent = self.attributes.power * PRINCIPLES.ATTRIBUTES.POWER.damage_percent
-	self.hp =  (38 + (self.level * 12) + self.attributes.constitution * PRINCIPLES.ATTRIBUTES.CONSTITUTION.hp  + self.hp_added) * (1 + self.hp_percent)
-	self.defence = (53 + self.level * 3) + self.attributes.agility * PRINCIPLES.ATTRIBUTES.AGILITY.defence
-	self.attack = 0 + self.level*2 + self.attributes.agility * PRINCIPLES.ATTRIBUTES.AGILITY.attack
+	self.damage_percent = self.attributes.power * PRINCIPLES.ATTRIBUTES.DATA.POWER.damage_percent
+	self.hp =  (38 + (self.level * 12) + self.attributes.constitution * PRINCIPLES.ATTRIBUTES.DATA.CONSTITUTION.hp  + self.hp_added) * (1 + self.hp_percent)
+	self.defence = (53 + self.level * 3) + self.attributes.agility * PRINCIPLES.ATTRIBUTES.DATA.AGILITY.defence
+	self.attack = 0 + self.level*2 + self.attributes.agility * PRINCIPLES.ATTRIBUTES.DATA.AGILITY.attack
 	self.armor = 0
 end
 

@@ -1,5 +1,5 @@
 local COMMON = require "libs.common"
-local BASE_PRINCIPLE = require "world.base_principle"
+local BASE_PRINCIPLE = require "world.principles.base_principle"
 
 local M = {}
 
@@ -9,9 +9,9 @@ local Race = COMMON.class("Race",BASE_PRINCIPLE.BasePrinciple)
 function Race:initialize(data)
 	BASE_PRINCIPLE.BasePrinciple.initialize(self,data)
 	self.attributes = {
-		power = data.power,
-		constitution = data.constitution,
-		agility = data.agility,
+		power = assert(data.power),
+		constitution = assert(data.constitution),
+		agility = assert(data.agility),
 	}
 	self.playable = assert(data.playable) --user can use that race
 end

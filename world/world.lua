@@ -1,9 +1,9 @@
 local COMMON = require "libs.common"
 local RX = require "libs.rx"
 local STATE = require "world.state.state"
-local PRINCIPLES = require "world.principles"
+local PRINCIPLES = require "world.principles.principles"
 local Battle = require "world.battle"
-local ENEMIES = require "world.enemies"
+local ENEMIES = require "world.principles.enemies"
 
 local TAG = "World"
 

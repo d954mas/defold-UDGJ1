@@ -8,7 +8,7 @@ local START_ATTRIBUTES = {
 	constitution = 5
 }
 
-local VERSION = 2
+local VERSION = 3
 
 ---@class State
 ---@field hero HeroState|nil
@@ -17,7 +17,7 @@ local M = {}
 
 function M:create_hero(race,class,alignment)
 	assert(not self.hero, "hero alredy created")
-	self.__VALUE.hero = HeroState(race,class,alignment)
+	self.__VALUE.hero = HeroState(race,class,alignment,START_ATTRIBUTES)
 end
 
 function M:load(t)
@@ -36,7 +36,7 @@ function M:load(t)
 		gold = assert(t.resources.gold),
 	}
 	self.current_stage = assert(t.current_stage)
-	self.hero = t.hero and HeroState.load(t.hero)
+	self.hero = t.hero and HeroState.load(t.hero,START_ATTRIBUTES)
 	self:update_user_attributes()
 end
 
